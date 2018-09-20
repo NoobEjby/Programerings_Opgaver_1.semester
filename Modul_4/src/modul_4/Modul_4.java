@@ -17,7 +17,7 @@ public class Modul_4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        OpgC3();
+        OpgC5();
     }
 
     public static void Opg73() {
@@ -103,12 +103,12 @@ public class Modul_4 {
     }
 
     public static void OpgC1() {
-        double[] radius = {1, 2, 3, 4, 5};
+        double[] radius = {1, 40, 3, 4, 5};
         double area;
 
         //using radius from array
         for (int i = 0; i < radius.length; i++) {
-            
+
             //Calculating area
             area = Math.PI * Math.pow(radius[i], 2);
             System.out.println("area of a cikel with a redius if " + radius[i] + " is " + area);
@@ -144,7 +144,7 @@ public class Modul_4 {
         int greatest = 0;
 
         int[] array;
-        array = new int[100000];
+        array = new int[1000000];
 
         int multiplier = 1;
 
@@ -166,20 +166,23 @@ public class Modul_4 {
 
                         array[j * multiplier] = 0;
 
-                    }
-                    
+                    }else{
+
                     //Save the greatest number found
                     greatest = array[i];
+//                    System.out.println(array[i]);
+                    }
 
                 }
-
+                
+                
                 // reset multiplier
                 multiplier = 1;
 
             }
 
         }
-        
+
         //Print out the greatest number
         System.out.println(greatest);
 
@@ -188,19 +191,21 @@ public class Modul_4 {
     public static void OpgC6() {
         int[] array = {23, 4, 87, 47, 465, 86, 34, 57, 8, 9656, 23, 54, 7, 68, 6, 8, 67, 564};
         int greatest = array[0];
+        int arrayIndex = 0;
 
         //Testing every spot in the array
         for (int i = 0; i < array.length; i++) {
-            
+
             //If number in array is greater then the greatest number found
             //replase the number
             if (greatest < array[i]) {
                 greatest = array[i];
+                arrayIndex = i;
             }
         }
-        
+
         //Print out the greatest number
-        System.out.println("Greatest number in array:" + greatest);
+        System.out.println("Greatest number is:" + greatest + " and is in array index number:" + arrayIndex);
     }
 
     public static void OpgC7() {
@@ -211,22 +216,23 @@ public class Modul_4 {
         int[] testY = {0, 0, 0, 0, 0, 0, 0, 0};
 
         int[][] buffer = {
-            {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},};
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,1,1,1,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,1,1,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+            {0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0},
+            {0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0},
+            {0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,1,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        };
 
         int[][] update;
         update = new int[buffer.length][buffer[0].length];
@@ -266,32 +272,32 @@ public class Modul_4 {
                     //Getting nearby cell y cordinat
                     if (y - 1 < 0) {
                         testY[0] = testY[1] = testY[2] = buffer.length - 1;
-                        testY[3] = testY[4] = y;
+                        testY[3] =            testY[4] = y;
                         testY[5] = testY[6] = testY[7] = y + 1;
                     } else if (y + 1 >= buffer.length) {
                         testY[0] = testY[1] = testY[2] = y - 1;
-                        testY[3] = testY[4] = y;
+                        testY[3] =            testY[4] = y;
                         testY[5] = testY[6] = testY[7] = 0;
                     } else {
                         testY[0] = testY[1] = testY[2] = y - 1;
-                        testY[3] = testY[4] = y;
+                        testY[3] =            testY[4] = y;
                         testY[5] = testY[6] = testY[7] = y + 1;
                     }
 
                     //Getting nearby cell x cordinat
                     if (x - 1 < 0) {
                         testX[0] = testX[3] = testX[5] = buffer[y].length - 1;
-                        testX[1] = testX[6] = x;
+                        testX[1] =            testX[6] = x;
                         testX[2] = testX[4] = testX[7] = x + 1;
 
                     } else if (x + 1 >= buffer[y].length) {
                         testX[0] = testX[3] = testX[5] = x - 1;
-                        testX[1] = testX[6] = x;
+                        testX[1] =            testX[6] = x;
                         testX[2] = testX[4] = testX[7] = 0;
 
                     } else {
                         testX[0] = testX[3] = testX[5] = x - 1;
-                        testX[1] = testX[6] = x;
+                        testX[1] =            testX[6] = x;
                         testX[2] = testX[4] = testX[7] = x + 1;
 
                     }
@@ -335,14 +341,12 @@ public class Modul_4 {
             }
 
             //Wait
-            for (long i = 0; i < 100000000; i++) {
+            for (long i = 0; i < 10000000; i++) {
             }
 
             //Spacing
             System.out.println("");
             System.out.println("");
-
-            
 
         }
     }
