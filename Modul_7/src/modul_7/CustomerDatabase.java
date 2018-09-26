@@ -30,10 +30,15 @@ public class CustomerDatabase {
                     break;
                 }
             }
-            if (!isRoom){
-                Customer[] backup= new Customer[customers.length*2];
-                System.arraycopy(customers, 0, backup, 0, customers.length);
-                customers=backup;
+            //if there is no room in array create a double as big array
+            if (!isRoom) {
+                
+                Customer[] backup = new Customer[customers.length * 2];
+                for(int i = 0;i<customers.length;i++){
+                    backup[i]=customers[i];
+                }
+//                System.arraycopy(customers, 0, backup, 0, customers.length);
+                customers = backup;
             }
         }
 
@@ -51,13 +56,11 @@ public class CustomerDatabase {
 
     public void printCustomers() {
         for (int i = 0; i < customers.length; i++) {
-            if (customers[i] == null) {
-
-            } else {
+            if (customers[i] != null) {
                 System.out.printf("%-20s", "name:" + customers[i].name);
                 System.out.printf("%-10s", "id:" + customers[i].id);
                 System.out.printf("%-20s", "balance:" + customers[i].balance);
-                System.out.println("");
+                System.out.println();
             }
 
         }
