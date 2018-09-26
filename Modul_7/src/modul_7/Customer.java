@@ -11,38 +11,39 @@ package modul_7;
  */
 public class Customer {
 //    Atributes
+
     String name;
     int id;
     double balance;
-    
+
 //    Constructors
-    public Customer(String aName,int aId){
-        name=aName;
+    public Customer(String aName, int aId) {
+        name = aName;
         id = aId;
         balance = 0;
     }
-    
-    public Customer(String aName,int aId,double aBalance){
-        name=aName;
+
+    public Customer(String aName, int aId, double aBalance) {
+        name = aName;
         id = aId;
         balance = aBalance;
     }
-    
+
 //    Methods
-    public void deposit(double amount){
-        
+    public void deposit(double amount) {
+
         balance += amount;
-        
+
     }
-    
-    public void withdraw(double amount){
-        if (amount<balance){
+
+    public void withdraw(double amount) {
+        if (amount < balance) {
             balance -= amount;
         }
     }
-    
-    public double getBalance(){
+
+    public double getBalance() {
         return balance;
     }
-    
+
 }
