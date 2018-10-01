@@ -14,7 +14,7 @@ import javafx.scene.control.Toggle;
  * @author Noob
  */
 public class Fan {
-
+//    Atributes
     final static int SLOW = 1;
     final static int MEDEUM = 2;
     final static int FAST = 3;
@@ -33,19 +33,10 @@ public class Fan {
 
     }
 
-    public void setColor(String color) {
+    public void setAtributes(String color,int radius,boolean run,int speed) {
         this.color = color;
-    }
-
-    public void setRadius(int radius) {
         this.radius = radius;
-    }
-
-    public void setOn() {
-        this.on = !this.on;
-    }
-
-    public void setSpeed(int speed) {
+        this.on = run;
         switch (speed) {
             case 1:
                 this.speed = SLOW;
@@ -60,8 +51,37 @@ public class Fan {
                 this.speed = SLOW;
                 break;
         }
-
     }
+    
+//    public void setColor(String color) {
+//        this.color = color;
+//    }
+//
+//    public void setRadius(int radius) {
+//        this.radius = radius;
+//    }
+//
+//    public void setOn() {
+//        this.on = !this.on;
+//    }
+//
+//    public void setSpeed(int speed) {
+//        switch (speed) {
+//            case 1:
+//                this.speed = SLOW;
+//                break;
+//            case 2:
+//                this.speed = MEDEUM;
+//                break;
+//            case 3:
+//                this.speed = FAST;
+//                break;
+//            default:
+//                this.speed = SLOW;
+//                break;
+//        }
+//
+//    }
 
     public String toString() {
 

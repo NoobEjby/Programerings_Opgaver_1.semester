@@ -20,16 +20,13 @@ public class opg98 {
         Fan fan1 = new Fan();
 
         //Setting arguments of fan one
-        fan1.setRadius(10);
-        fan1.setColor("yellow");
-        fan1.setSpeed(3);
-        fan1.setOn();
+        fan1.setAtributes("Yellow", 10, true, 3);
 
         //Creating Fan number two
         Fan fan2 = new Fan();
 
         //Setting arguments of fan two
-        fan2.setSpeed(2);
+        fan2.setAtributes("Blue", 5, false, 2);
 
 
         
