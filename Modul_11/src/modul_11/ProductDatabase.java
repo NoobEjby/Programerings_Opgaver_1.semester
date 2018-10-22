@@ -5,6 +5,7 @@
  */
 package modul_11;
 
+import java.awt.image.DataBuffer;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -30,27 +31,16 @@ public class ProductDatabase {
     public boolean addProduct(Product p) {
         boolean exist = false;
         for (int i = 0; i < dataB.size(); i++) {
-            if (p instanceof NonfoodProduct) {
+            
+
+            
                 if (dataB.get(i).equals(p)) {
-                    System.out.println("Non Food exist");
                     exist = true;
                 }
-            }
+            
 
-            if (p instanceof FoodProduct) {
-                if (dataB.get(i).equals(p)) {
-                    System.out.println("Food exist");
-                    exist = true;
-                }
-            }
-
-//            if (p instanceof Product && dataB.get(i).equals(p)) {
-//                System.out.println("5");
-//                return false;
-//            }
         }
         if (!exist) {
-            System.out.println("ADDED");
             this.dataB.add(p);
 
             return true;

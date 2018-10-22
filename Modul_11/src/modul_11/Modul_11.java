@@ -42,14 +42,13 @@ public class Modul_11 {
         
         
         
-        
         dB.addProduct(tv);
         
         
 
         System.out.println(dB.productsPrices());
         
-        FoodProduct food2 = new FoodProduct("Orange", 21, 20, 5);
+        FoodProduct food2 = new FoodProduct("Orange", 20, 20, 5);
 
         dB.addProduct(food2);
         

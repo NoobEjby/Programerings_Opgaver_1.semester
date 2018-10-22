@@ -29,8 +29,9 @@ public class NonfoodProduct extends Product {
     
     @Override
     public boolean equals(Object obj) {
-        NonfoodProduct p = (NonfoodProduct) obj;
+        
         if (obj instanceof NonfoodProduct) {
+            NonfoodProduct p = (NonfoodProduct) obj;
             if (this.getPrice() == p.getPrice() && this.getName() == p.getName()) {
                 return true;
             }
