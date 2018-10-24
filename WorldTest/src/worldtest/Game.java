@@ -1,3 +1,4 @@
+
 package worldtest;
 
 import java.io.File;
@@ -16,9 +17,9 @@ public class Game {
     }
 
     private void createRooms() {
-
-        File myFile = new File("C:\\Users\\Noob\\SDU_Software_ingeniør\\Objektorinteret programering\\Programerings_Opgaver_1.semester\\Modul_13_files\\Test2.csv");
-
+        
+        File roomFile = new File("src/resources/Rooms.csv");
+        
         Scanner reader;
 
         ArrayList<Room> rooms = new ArrayList<>();
@@ -31,7 +32,7 @@ public class Game {
         String[] exits = {"north", "south", "east", "west"};
 
         try {
-            reader = new Scanner(myFile).useDelimiter(";");
+            reader = new Scanner(roomFile).useDelimiter(";");
             while (!allRooms) {
 
                 update = reader.next();
