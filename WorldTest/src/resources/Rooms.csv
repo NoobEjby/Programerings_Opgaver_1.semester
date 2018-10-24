@@ -1,5 +1,5 @@
-at the main entrence;Rum1;Rum2;Rum3;null;;;;;
--1;0;1;2;;;;;;north
-1;2;3;-1;;;;;;south
--1;-1;-1;-1;;;;;;east
--1;-1;-1;-1;;;;;;west
+at the main entrence;at the campus square;at student service;at the cafeteria;in the student service. Need help?;in the cafeteria. Need anything?;null;;;
+-1;0;1;2;-1;-1;;;;north
+1;2;3;-1;-1;-1;;;;south
+-1;-1;-1;-1;2;3;;;;east
+-1;-1;4;5;-1;-1;;;;west

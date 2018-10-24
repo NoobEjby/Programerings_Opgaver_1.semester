@@ -18,7 +18,7 @@ public class Game {
 
     private void createRooms() {
         
-        File roomFile = new File("src/resources/Rooms.csv");
+        File roomFile = new File("C:\\Users\\Noob\\SDU_Software_ingeniør\\Objektorinteret programering\\1-SemesterProjektSE\\src\\resources\\Rooms.csv");
         
         Scanner reader;
 
