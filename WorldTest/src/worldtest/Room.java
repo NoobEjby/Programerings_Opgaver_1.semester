@@ -15,6 +15,11 @@ public class Room
         this.description = description;
         exits = new HashMap<String, Room>();
     }
+    
+    public String inRoom(){
+      
+        return "nothing ";
+    }
 
     public void setExit(String direction, Room neighbor) 
     {
@@ -28,6 +33,7 @@ public class Room
 
     public String getLongDescription()
     {
+        
         return "You are " + description + ".\n" + getExitString();
     }
 

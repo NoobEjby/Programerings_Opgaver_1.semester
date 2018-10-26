@@ -2,7 +2,7 @@ package worldtest;
 
 public enum CommandWord
 {
-    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?");
+    GO("go"), QUIT("quit"), HELP("help"), LOOK("look"), UNKNOWN("?");
     
     private String commandString;
     
