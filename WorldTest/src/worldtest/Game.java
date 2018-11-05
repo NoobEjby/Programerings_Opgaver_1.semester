@@ -1,5 +1,6 @@
 package worldtest;
 
+import SDUVejviser.RoomNotFoundException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -9,35 +10,45 @@ public class Game {
 
     private Parser parser;
     private Room currentRoom;
-    private boolean roomsCreated;
 
-    public Game() {
+    public Game() throws RoomNotFoundException {
         createRooms();
         parser = new Parser();
     }
 
-    private void createRooms() {
+    private void createRooms() throws RoomNotFoundException {
+//        Loading file placement
+        File roomFile = new File("src/resources/Rooms.csv");
 
-        File roomFile = new File("C:\\Users\\Noob\\SDU_Software_ingeniør\\Objektorinteret programering\\1-SemesterProjektSE\\src\\resources\\Rooms.csv");
-
+//        Creating scanner
         Scanner reader;
 
+//        Creating arraylist of rooms
         ArrayList<Room> rooms = new ArrayList<>();
 
+//        
         boolean allRooms = false;
 
-        String update;
-        int updatExit;
+//        Placeholder for Room descriptions an Exits
+        String updateRooms;
+        int updateExit;
 
+//        Exit names (0,1,2,3)
         String[] exits = {"north", "south", "east", "west", "up", "down"};
 
         try {
+//            Read from file
             reader = new Scanner(roomFile).useDelimiter(";");
+
+//            Creating all rooms
             while (!allRooms) {
 
-                update = reader.next();
-                if (!"null".equals(update)) {
-                    rooms.add(new Room(update));
+//                Room descriptions loaded
+                updateRooms = reader.next();
+
+//                If null is found all rooms are created
+                if (!"null".equals(updateRooms)) {
+                    rooms.add(new Room(updateRooms));
                 } else {
                     allRooms = true;
 
@@ -45,50 +56,48 @@ public class Game {
 
             }
 
-            for (int i = 0; i < 6; i++) {
+//            Creating exits to rooms
+            for (int i = 0; i < 4; i++) {
+
+//                Reading next line in file
                 reader.nextLine();
                 for (int j = 0; j < rooms.size(); j++) {
 
-                    updatExit = reader.nextInt();
-                    if (updatExit > 0 && updatExit < rooms.size()) {
-                        rooms.get(j).setExit(exits[i], rooms.get(updatExit));
+//                    Reading room exit (0,1,2,3)
+                    updateExit = reader.nextInt();
+
+//                    If room exit equels -1 not an exit
+                    if (updateExit >= 0) {
+                        rooms.get(j).setExit(exits[i], rooms.get(updateExit));
 
                     }
                 }
             }
+//            close file
             reader.close();
+            //        Starting room
+            currentRoom = rooms.get(0);
         } catch (FileNotFoundException ex) {
-            System.out.println("File not found");
+            throw new RoomNotFoundException(roomFile);
         }
 
-        
-        if (rooms.isEmpty()){
-            System.out.println("Rooms not found");
-            roomsCreated = false;
-        }else{
-            currentRoom = rooms.get(0);
-            roomsCreated = true;
-        }
     }
 
     public void play() {
-        if (roomsCreated) {
-            printWelcome();
+        printWelcome();
 
-            boolean finished = false;
-            while (!finished) {
-                Command command = parser.getCommand();
-                finished = processCommand(command);
-            }
+        boolean finished = false;
+        while (!finished) {
+            Command command = parser.getCommand();
+            finished = processCommand(command);
         }
         System.out.println("Thank you for playing.  Good bye.");
-
     }
 
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the SDU!");
-        System.out.println("SDU is a new, incredibly boring place.");
+        System.out.println("Welcome to the World of Zuul!");
+        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -108,8 +117,6 @@ public class Game {
             printHelp();
         } else if (commandWord == CommandWord.GO) {
             goRoom(command);
-        } else if (commandWord == CommandWord.LOOK) {
-            lookAt(command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
@@ -140,10 +147,6 @@ public class Game {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
-    }
-
-    private void lookAt(Command command) {
-        System.out.println("You look around and finde " + currentRoom.inRoom() + currentRoom.getShortDescription() + ".");
     }
 
     private boolean quit(Command command) {
